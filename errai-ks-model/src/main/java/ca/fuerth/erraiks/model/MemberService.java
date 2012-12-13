@@ -10,7 +10,7 @@ import org.jboss.errai.bus.server.annotations.Remote;
  *
  * @author Jonathan Fuerth <jfuerth@redhat.com>
  * @author Christian Sadilek <csadilek@redhat.com>
- * @see ca.fuerth.controller.MemberServiceImpl
+ * @see ca.fuerth.erraiks.controller.MemberServiceImpl
  */
 @Remote
 public interface MemberService {

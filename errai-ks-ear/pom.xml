@@ -14,8 +14,14 @@
     <dependency>
       <groupId>ca.fuerth</groupId>
       <artifactId>errai-ks-war</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${project.version}</version>
       <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>ca.fuerth</groupId>
+      <artifactId>errai-ks-model</artifactId>
+      <version>${project.version}</version>
+      <type>ejb</type>
     </dependency>
   </dependencies>
   
@@ -30,6 +36,10 @@
               <groupId>ca.fuerth</groupId>
               <artifactId>errai-ks-war</artifactId>
             </webModule>
+            <ejbModule>
+              <groupId>ca.fuerth</groupId>
+              <artifactId>errai-ks-model</artifactId>
+            </ejbModule>
           </modules>
         </configuration>
       </plugin>

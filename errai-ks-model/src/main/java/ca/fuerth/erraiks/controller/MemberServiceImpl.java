@@ -1,4 +1,4 @@
-package ca.fuerth.controller;
+package ca.fuerth.erraiks.controller;
 
 import java.util.List;
 import java.util.logging.Logger;

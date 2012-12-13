@@ -81,6 +81,14 @@
       <groupId>javax.enterprise</groupId>
       <artifactId>cdi-api</artifactId>
     </dependency>
+
+    <!-- Import the JPA API, we use provided scope as the API is included 
+      in JBoss AS 7 -->
+    <dependency>
+      <groupId>org.jboss.spec.javax.transaction</groupId>
+      <artifactId>jboss-transaction-api_1.1_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
     
     <!-- gwt-user is required at runtime because we use some of the client/server 
       shared APIs such as RegExp, so scope is 'compile' rather than 'provided'. -->

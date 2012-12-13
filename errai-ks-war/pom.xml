@@ -200,7 +200,7 @@
           <!-- We must exclude GWT client local classes from the deployment, 
             or classpath scanners such as Hibernate and Weld get confused when the webapp 
             is bootstrapping. -->
-          <packagingExcludes>**/javax/**/*.*,**/client/local/**/*.class</packagingExcludes>
+          <packagingExcludes>**/javax/**/*.*,**/client/local/**/*.class,**/errai-ks-model*.jar</packagingExcludes>
 
           <archive>
             <manifestEntries>
