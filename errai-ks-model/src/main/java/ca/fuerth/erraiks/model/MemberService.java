@@ -1,4 +1,4 @@
-package ca.fuerth.client.shared;
+package ca.fuerth.erraiks.model;
 
 import java.util.List;
 

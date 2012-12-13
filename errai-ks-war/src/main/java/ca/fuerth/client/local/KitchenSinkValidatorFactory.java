@@ -3,7 +3,7 @@ package ca.fuerth.client.local;
 import javax.validation.Validator;
 import javax.validation.groups.Default;
 
-import ca.fuerth.client.shared.Member;
+import ca.fuerth.erraiks.model.Member;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.validation.client.AbstractGwtValidatorFactory;

@@ -12,9 +12,10 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.UserTransaction;
 
-import ca.fuerth.client.shared.Member;
-import ca.fuerth.client.shared.MemberService;
-import ca.fuerth.client.shared.New;
+import ca.fuerth.erraiks.model.Member;
+import ca.fuerth.erraiks.model.MemberService;
+import ca.fuerth.erraiks.model.New;
+
 import org.jboss.errai.bus.server.annotations.Service;
 
 /**

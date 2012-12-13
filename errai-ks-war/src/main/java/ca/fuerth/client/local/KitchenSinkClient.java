@@ -9,8 +9,9 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
-import ca.fuerth.client.shared.Member;
-import ca.fuerth.client.shared.MemberService;
+import ca.fuerth.erraiks.model.Member;
+import ca.fuerth.erraiks.model.MemberService;
+
 import org.jboss.errai.bus.client.api.ErrorCallback;
 import org.jboss.errai.bus.client.api.Message;
 import org.jboss.errai.bus.client.api.RemoteCallback;

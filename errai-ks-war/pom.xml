@@ -2,159 +2,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-  <groupId>ca.fuerth</groupId>
+  <parent>
+    <groupId>ca.fuerth</groupId>
+    <artifactId>errai-ks-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
   <artifactId>errai-ks-war</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>JBoss AS Quickstarts: Errai kitchensink</name>
   <description>A starter Java EE 6 webapp project for use on JBoss AS 7 / EAP 6, generated from the jboss-javaee6-webapp archetype</description>
 
-  <properties>
-    <!-- Explicitly declaring the source encoding eliminates the following 
-      message: -->
-    <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
-      resources, i.e. build is platform dependent! -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-    <!-- Define the version of JBoss' Java EE 6 APIs we want to import. Any 
-      dependencies from org.jboss.spec will have their version defined by this 
-      BOM -->
-    <version.org.jboss.spec.jboss.javaee6>3.0.0.Final</version.org.jboss.spec.jboss.javaee6>
-    <version.org.jboss.bom.errai>1.0.0.M12</version.org.jboss.bom.errai>
-    <!-- Alternatively, comment out the above line, and un-comment the line 
-      below to use version 3.0.0.Final-redhat-1 which is a release certified to 
-      work with JBoss EAP 6. It requires you have access to the JBoss EAP 6 maven 
-      repository. -->
-    <!-- <version.org.jboss.spec.jboss.javaee6>3.0.0.Final-redhat-1</version.org.jboss.spec.jboss.javaee6> -->
-    <version.org.jboss.errai>2.2.0-SNAPSHOT</version.org.jboss.errai>
-    <version.com.google.gwt>2.4.0</version.com.google.gwt>
-    <version.org.codehaus.mojo.gwt.maven.plugin>${version.com.google.gwt}</version.org.codehaus.mojo.gwt.maven.plugin>
-  </properties>
-
-  <dependencyManagement>
-    <dependencies>
-      <!-- JBoss distributes a complete set of Java EE 6 APIs including a 
-        Bill of Materials (BOM). A BOM specifies the versions of a "stack" (or a 
-        collection) of artifacts. We use this here so that we always get the correct 
-        versions of artifacts. Here we use the jboss-javaee-6.0 stack (you can read 
-        this as the JBoss stack of the Java EE 6 APIs). You can actually use this 
-        stack with any version of JBoss AS that implements Java EE 6, not just JBoss 
-        AS 7! -->
-      <dependency>
-        <groupId>org.jboss.spec</groupId>
-        <artifactId>jboss-javaee-6.0</artifactId>
-        <version>${version.org.jboss.spec.jboss.javaee6}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-
-      <dependency>
-         <groupId>org.jboss.bom</groupId>
-         <artifactId>jboss-javaee-6.0-with-errai</artifactId>
-         <version>${version.org.jboss.bom.errai}</version>
-         <type>pom</type>
-         <scope>import</scope>
-     </dependency>
-
-      <!-- Errai Core and ErraiBus -->
-      <dependency>
-        <groupId>org.jboss.errai</groupId>
-        <artifactId>errai-bus</artifactId>
-        <version>${version.org.jboss.errai}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>javax.annotation</groupId>
-            <artifactId>jsr250-api</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.jboss.errai</groupId>
-        <artifactId>errai-ioc</artifactId>
-        <version>${version.org.jboss.errai}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>javax.annotation</groupId>
-            <artifactId>jsr250-api</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.jboss.errai</groupId>
-        <artifactId>errai-tools</artifactId>
-        <version>${version.org.jboss.errai}</version>
-      </dependency>
-
-      <!-- Errai JAX-RS -->
-      <dependency>
-        <groupId>org.jboss.errai</groupId>
-        <artifactId>errai-jaxrs-client</artifactId>
-        <version>${version.org.jboss.errai}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.jboss.errai</groupId>
-        <artifactId>errai-jaxrs-provider</artifactId>
-        <version>${version.org.jboss.errai}</version>
-      </dependency>
-
-      <!-- Errai CDI Integration Modules -->
-      <dependency>
-        <groupId>org.jboss.errai</groupId>
-        <artifactId>errai-cdi-client</artifactId>
-        <version>${version.org.jboss.errai}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.jboss.errai</groupId>
-        <artifactId>errai-javax-enterprise</artifactId>
-        <version>${version.org.jboss.errai}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.jboss.errai</groupId>
-        <artifactId>errai-weld-integration</artifactId>
-        <version>${version.org.jboss.errai}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.google.gwt</groupId>
-        <artifactId>gwt-user</artifactId>
-        <version>${version.com.google.gwt}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.google.gwt</groupId>
-        <artifactId>gwt-dev</artifactId>
-        <version>${version.com.google.gwt}</version>
-      </dependency>
-
-      <!-- Test dependencies -->
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.10</version>
-        <type>jar</type>
-        <scope>test</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
   <dependencies>
 
-    <!-- First declare the APIs we depend on and need for compilation. All 
+    <dependency>
+      <groupId>ca.fuerth</groupId>
+      <artifactId>errai-ks-model</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- Now declare the APIs we depend on and need for compilation. All 
       of them are provided by JBoss AS 7 -->
 
-    <!-- Import the CDI API, we use provided scope as the API is included 
+    <!-- Override the CDI API scope: we use provided because the API is included 
       in JBoss AS 7 -->
     <dependency>
       <groupId>javax.enterprise</groupId>
@@ -186,14 +55,6 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Import the JPA API, we use provided scope as the API is included 
-      in JBoss AS 7 -->
-    <dependency>
-      <groupId>org.hibernate.javax.persistence</groupId>
-      <artifactId>hibernate-jpa-2.0-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
     <!-- Import the EJB API, we use provided scope as the API is included 
       in JBoss AS 7 -->
     <dependency>
@@ -211,7 +72,7 @@
 
     <!-- JSR-303 (Bean Validation) Implementation -->
     <!-- Provides portable constraints such as @Email -->
-    <!-- Hibernate Validator is shipped in JBoss AS 7 -->
+    <!-- Hibernate Validator is shipped in JBoss AS 7, so we override the scope here to provided -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>
@@ -253,34 +114,6 @@
     <!-- The next set of dependencies are for Errai -->
     <dependency>
       <groupId>org.jboss.errai</groupId>
-      <artifactId>errai-bus</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>javax.inject</groupId>
-          <artifactId>javax.inject</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>javax.annotation</groupId>
-          <artifactId>jsr250-api</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.jboss.errai</groupId>
-      <artifactId>errai-ioc</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>javax.inject</groupId>
-          <artifactId>javax.inject</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>javax.annotation</groupId>
-          <artifactId>jsr250-api</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.jboss.errai</groupId>
       <artifactId>errai-tools</artifactId>
     </dependency>
 
@@ -312,14 +145,6 @@
           <artifactId>weld-servlet</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-
-    <!-- gwt-user is required at runtime because we use some of the client/server 
-      shared APIs such as RegExp, so scope is 'compile' rather than 'provided'. -->
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-user</artifactId>
-      <scope>compile</scope>
     </dependency>
 
     <dependency>

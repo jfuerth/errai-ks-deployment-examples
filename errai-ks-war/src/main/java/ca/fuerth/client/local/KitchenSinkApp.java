@@ -5,9 +5,10 @@ import java.util.List;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
-import ca.fuerth.client.shared.Member;
-import ca.fuerth.client.shared.MemberService;
-import ca.fuerth.client.shared.New;
+import ca.fuerth.erraiks.model.Member;
+import ca.fuerth.erraiks.model.MemberService;
+import ca.fuerth.erraiks.model.New;
+
 import org.jboss.errai.bus.client.api.ErrorCallback;
 import org.jboss.errai.bus.client.api.Message;
 import org.jboss.errai.bus.client.api.RemoteCallback;

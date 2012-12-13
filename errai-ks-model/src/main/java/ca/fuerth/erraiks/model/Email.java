@@ -1,4 +1,4 @@
-package ca.fuerth.client.shared;
+package ca.fuerth.erraiks.model;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.FIELD;

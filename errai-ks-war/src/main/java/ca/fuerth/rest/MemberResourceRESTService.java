@@ -10,7 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import ca.fuerth.client.shared.Member;
+import ca.fuerth.erraiks.model.Member;
 
 /**
  * A REST resource representing the contents of the members table.
